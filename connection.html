@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librairie RDC Élite - Navigation</title>
+    <style>
+    
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+  
+        .page {
+            display: none;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            animation: fadeIn 0.5s;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+  
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com');
+            background-size: cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .book-card img { width: 100%; border-radius: 5px; }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #f7d117;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Librairie RDC Élite</h1>
+        <nav>
+            <ul>
+                <li><a onclick="showPage('accueil')">Accueil</a></li>
+                <li><a onclick="showPage('boutique')">Boutique</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PAGE ACCUEIL -->
+    <div id="accueil" class="page active">
+        <div class="hero">
+            <h2>Bienvenue à la Librairie RDC Élite</h2>
+            <p>Découvrez le meilleur de la littérature congolaise en un clic.</p>
+            <button style="width: auto; padding: 10px 30px;" onclick="showPage('boutique')">Voir les livres</button>
+        </div>
+        <section>
+            <h3>Pourquoi nous choisir ?</h3>
+            <p>Nous livrons partout à Kinshasa, Lubumbashi et Goma.</p>
+        </section>
+    </div>
+
+
+    <div id="boutique" class="page">
+        <h2>Nos Livres Populaires</h2>
+        <div class="book-grid">
+            <div class="book-card">
+                <img src="https://placeholder.com" alt="Livre">
+                <h3>Bahari-Bora</h3>
+                <p>15.00 $</p>
+                <button>Acheter</button>
+            </div>
+            <div class="book-card">
+                <img src="https://placeholder.com." alt="Livre">
+                <h3>Congo Inc.</h3>
+                <p>12.50 $</p>
+                <button>Acheter</button>
+            </div>
+            <div class="book-card">
+                <img src="https://placeholder.com" alt="Livre">
+                <h3>Tram 83</h3>
+                <p>14.00 $</p>
+                <button>Acheter</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="page">
+        <h2>Contactez-nous</h2>
+        <p>Une question ? Envoyez-nous un message.</p>
+        <form>
+            <input type="text" placeholder="Votre Nom" required>
+            <input type="email" placeholder="Votre Email" required>
+            <textarea rows="5" placeholder="Votre message..."></textarea>
+            <button type="submit">Envoyer</button>
+            <form action="/contact" method="POST">
+
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Librairie RDC Élite | Lubumbashi - RDC</p>
+    </footer>
+
+    <script>
+    
+        function showPage(pageId) {
+        
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+       
+            document.getElementById(pageId).classList.add('active');
+            
+       
+            window.scrollTo(0,0);
+        }
+    </script>
+
+</body>
+</html>
